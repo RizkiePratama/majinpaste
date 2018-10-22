@@ -1,0 +1,26 @@
+<form method="post" action="/create">
+  <div id="indicator-block">
+    <h4>></h4>
+  </div>
+
+  <div id="paste-block">
+    <textarea name="paste[content]" id="paste-editor"></textarea>
+  </div>
+
+  <div id="panel-block">
+    <%= erb :'/partial/menu' %>
+
+    <div id="form-options">
+      <label for="lang">Language Type</label>
+      <select id="lang" name="paste[lang]">
+        <% for item in lang %>
+	<option value="<%= item[:key] %>"><%= item[:name] %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div id="form-action">
+      <input type="submit">
+    </div>
+  </div>
+</form>

@@ -1,0 +1,162 @@
+body {
+  background: #252525;
+  color: #FAFAFA;
+  display: flex;
+  flex-flow: column-reverse;
+  flex-wrap: wrap;
+}
+
+::selection {
+  background: #858585;
+}
+
+::-moz-selection {
+  background: #858585;
+}
+
+#paste-block {
+  margin-right: 200px;
+  margin-left: 20px;
+}
+
+#paste-block pre {
+  overflow-x: scroll;
+  height: 99vh;
+  margin: 0;
+}
+
+#indicator-block {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+#indicator-block h4 {
+  margin: 7px;
+}
+
+#panel-block {
+  width: 160px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 20px;
+}
+
+#panel-block select ,
+#panel-block input[type=submit] {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+}
+
+#panel-block select {
+  background: #FAFAFA;
+  border: none;
+  padding: 6px;
+}
+
+#panel-block input[type=submit] {
+  padding: 7px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  background: #EDBE45;
+  color: #252525;
+  border: none;
+  font-weight: bold;
+}
+
+#text-logo {
+  font-family: 'Kodchasan', sans-serif;
+  font-weight: bold;
+  font-size: 1.6em;
+  margin: 0;
+  text-align: center;
+}
+
+#paste-editor {
+  height: 100vh;
+  width: 100%;
+  background: #252525;
+  border: none;
+  color: #FAFAFA;
+}
+
+#action-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: block;
+  margin-top: 25px;
+}
+
+#action-menu li {
+  margin-top: 5px;
+  display: block;
+}
+
+#action-menu li a {
+  display: block;
+  background: #FAFAFA;
+  color: #252525;
+  padding: 7px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 3px;
+}
+
+#form-options {
+  margin-top: 20px;
+}
+
+#form-options label {
+  font-size: 0.9em;
+}
+
+#paste-info-container {
+  color: #252525;
+  background: #FAFAFA;
+  border-radius: 3px;
+}
+
+#paste-info {
+  list-style: none;
+  padding: 10px;
+  margin: 20px 0 0 0;
+}
+
+#paste-info p {
+ margin: 0 0 15px 0;
+ font-family: 'Source Code Pro', monospace;
+ font-size: 0.8em;
+
+ overflow-wrap: break-word;
+ word-wrap: break-word;
+}
+
+#paste-info p a {
+ text-decoration: none;
+ color: #EDBE45;
+ background: #252525;
+ padding: 5px;
+ margin-top: 5px;
+ border-radius: 3px;
+ display: block;
+}
+
+@media(max-width: 620px) {
+  #panel-block {
+    position: inherit;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #paste-block {
+    margin: 0;
+    padding: 20px;
+  }
+
+  #indicator-block {
+    display: none;
+  }
+}
