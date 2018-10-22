@@ -1,4 +1,5 @@
-body {
+body,
+body #new-paste {
   background: #252525;
   color: #FAFAFA;
   display: flex;
@@ -80,6 +81,7 @@ body {
   background: #252525;
   border: none;
   color: #FAFAFA;
+  box-sizing: border-box;
 }
 
 #action-menu {
@@ -125,23 +127,19 @@ body {
   margin: 20px 0 0 0;
 }
 
-#paste-info p {
+#paste-info textarea {
  margin: 0 0 15px 0;
  font-family: 'Source Code Pro', monospace;
  font-size: 0.8em;
 
- overflow-wrap: break-word;
- word-wrap: break-word;
-}
-
-#paste-info p a {
- text-decoration: none;
  color: #EDBE45;
  background: #252525;
  padding: 5px;
- margin-top: 5px;
+ margin: 5px 0 0 0;
  border-radius: 3px;
- display: block;
+ border: none;
+ width: 100%;
+ box-sizing: border-box;
 }
 
 @media(max-width: 620px) {
@@ -156,7 +154,19 @@ body {
     padding: 20px;
   }
 
+  #paste-editor {
+    border: 1px solid #FAFAFA;
+    padding: 10px;
+  }
+
   #indicator-block {
     display: none;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-selection { background: #A5A5A5; }
+::selection { background: #A5A5A5; }

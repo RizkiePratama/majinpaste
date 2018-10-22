@@ -13,7 +13,7 @@
     <ul id="paste-info">
       <li><p><b>Language:</b><br/><%= paste.lang %></p></li>
       <li><p><b>Created At:</b><br/><%= paste.created_at.strftime("%d %B %Y \n %H:%M:%S %Z") %></p></li>
-      <li><p><b>Paste Link:</b><br/><a href="<%= request.base_url + '/' + paste.slug %>"><%= request.base_url + '/' + paste.slug %></a></p></li>
+      <li><p><b>Paste Link:</b><br/><textarea readonly><%= request.base_url + '/' + paste.slug %></textarea></p></li>
     </ul>
   </div>
 </div>
