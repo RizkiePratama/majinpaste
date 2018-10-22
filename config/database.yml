@@ -1,4 +1,4 @@
 development:
-  user: majinpaste
-  password: VikSatu1dua2
-  database: majinpaste_devel
+  user: #DB USER
+  password: #DB PASS
+  database: #DB NAME
