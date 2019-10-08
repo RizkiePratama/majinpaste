@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  host: <%= ENV['MAJIN_PASTE_DATABASE_HOST'] %>
+  username: <%= ENV['MAJIN_PASTE_DATABASE_USER'] %>
+  password: <%= ENV['MAJIN_PASTE_DATABASE_PASS'] %>
+
+development:
+  <<: *default
+  database: majin_paste_devel
+
+test:
+  <<: *default
+  database: majin_paste_test
+
+production:
+  <<: *default
+  database: majin_paste
