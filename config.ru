@@ -1,15 +1,16 @@
 # Require sinatra base
 require 'yaml'
+require 'erb'
 require 'sinatra/base'
 require 'active_record'
 
 # Init DB Connection
-db = YAML.load_file('./config/database.yml')['development']
+db = YAML.load(ERB.new(File.read('./config/database.yml')).result)['development']
 ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
+  adapter: db['adapter'],
   host: db['host'],
-  username: db['username'],
-  password: db['password'],
+  username: db['user'],
+  password: db['pass'],
   database: db['database']
 )
 
