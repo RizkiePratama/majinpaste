@@ -6,11 +6,8 @@ require 'active_record'
 # Init DB Connection
 db = YAML.load_file('./config/database.yml')['development']
 ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  host: db['host'],
-  username: db['username'],
-  password: db['password'],
-  database: db['database']
+  adapter: 'sqlite3',
+#  database: 'majin.sqlite3',
 )
 
 # Then Require Model
@@ -25,4 +22,4 @@ Dir.glob('./app/controllers/*.rb')
   .each { |controller| require controller }
 
 # Then load our routes
-run PasteController.new
+run PasteController.new!

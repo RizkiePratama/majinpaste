@@ -4,4 +4,4 @@ public/bundle
 public/fonts
 node_modules
 yarn-error.log
-
+majin.sqlite3

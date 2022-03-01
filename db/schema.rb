@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20181018) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "pastes", force: :cascade do |t|
     t.text "content"
     t.string "slug"

@@ -1,17 +1,14 @@
 default: &default
-  adapter: postgresql
-  host: <%= ENV['MAJIN_PASTE_DATABASE_HOST'] %>
-  username: <%= ENV['MAJIN_PASTE_DATABASE_USER'] %>
-  password: <%= ENV['MAJIN_PASTE_DATABASE_PASS'] %>
+  adapter: sqlite3
 
 development:
   <<: *default
-  database: majin_paste_devel
+  database: 'majin_devel.sqlite3'
 
 test:
   <<: *default
-  database: majin_paste_test
+  database: 'majin_test.sqlite3'
 
 production:
   <<: *default
-  database: majin_paste
+  database: 'majin.sqlite3'
