@@ -7,7 +7,7 @@ require 'active_record'
 db = YAML.load_file('./config/database.yml')['development']
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-#  database: 'majin.sqlite3',
+  database: 'majin.sqlite3',
 )
 
 # Then Require Model
