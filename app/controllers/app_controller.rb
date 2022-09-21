@@ -1,3 +1,6 @@
+require 'sinatra/base'
+require 'sinatra/activerecord'
+
 class AppController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
   set :public_folder, 'public'
