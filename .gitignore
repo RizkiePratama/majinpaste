@@ -1,5 +1,7 @@
 *.swp
 .env
+.bundle
+vendor/
 public/bundle
 public/fonts
 node_modules
