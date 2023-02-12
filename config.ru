@@ -5,5 +5,6 @@ require 'require_all'
 
 # Make Sure App Controller Loaded First
 require_all 'app/controllers'
+require_all 'app/models'
 
 run PasteController.new
