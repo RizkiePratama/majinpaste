@@ -1,5 +1,5 @@
 import CodeMirror from 'codemirror';
-import 'codemirror/lib/codemirror.css'; // Make sure core styles are imported
+import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/javascript/javascript';
@@ -136,5 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('CodeMirror display editor instance created and content set.');
   } else {
     console.log('Could not find #paste-display-editor div or hidden content/lang for CodeMirror display initialization (this is expected on new paste page).');
+  }
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const panelBlock = document.getElementById('panel-block');
+
+  if (menuToggle && panelBlock) {
+    menuToggle.addEventListener('click', () => {
+      panelBlock.classList.toggle('panel-expanded');
+      document.body.classList.toggle('panel-open'); // Toggle class on body for overlay
+    });
   }
 });

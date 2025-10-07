@@ -15,5 +15,22 @@
         <li><p><b>Paste Link:</b><br/><textarea readonly><%= request.base_url + '/' + paste.slug %></textarea></p></li>
       </ul>
     </div>
+
+    <div class="sidebar-block">
+      <h4>Recent Pastes</h4>
+      <ul class="recent-pastes-list">
+        <% if recent_pastes.any? %>
+          <% recent_pastes.each do |rp| %>
+            <li>
+              <a href="/<%= rp.slug %>"><i class="fas fa-file-alt"></i><%= rp.slug %></a><br>
+              <small style="color: #D7D7D7"><%= format_time_ago(rp.created_at) %></small><br>
+              <small style="color: #D7D7D7"><%= format_content_size(rp.content) %>, <%= rp.lang %></small>
+            </li>
+          <% end %>
+        <% else %>
+          <li>No recent pastes.</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

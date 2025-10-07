@@ -19,5 +19,22 @@
     <div id="form-action">
       <input type="submit">
     </div>
+
+    <div class="sidebar-block">
+      <h4>Recent Pastes</h4>
+      <ul class="recent-pastes-list">
+        <% if recent_pastes.any? %>
+          <% recent_pastes.each do |paste| %>
+            <li>
+              <a href="/<%= paste.slug %>"><i class="fas fa-file-alt"></i><%= paste.slug %></a><br>
+              <small style="color: #D7D7D7"><%= format_time_ago(paste.created_at) %></small><br>
+              <small style="color: #D7D7D7"><%= format_content_size(paste.content) %>, <%= paste.lang %></small>
+            </li>
+          <% end %>
+        <% else %>
+          <li>No recent pastes.</li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </form>

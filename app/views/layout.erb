@@ -13,8 +13,15 @@
     <link rel="stylesheet" href="/css/global.css">
     <link href="https://fonts.googleapis.com/css?family=Kodchasan:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+    <div class="header-mobile">
+      <button id="menu-toggle" class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h4 id="text-logo">MajinPaste</h4>
+    </div>
     <%= yield %>
     <script src="/bundle/paste.bundle.js"></script>
   </body>

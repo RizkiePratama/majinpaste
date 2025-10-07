@@ -8,6 +8,10 @@ body {
   flex-direction: column;
 }
 
+select, input {
+  font-family: 'Kodchasan', sans-serif;
+}
+
 #new-paste {
   display: flex;
   flex-grow: 1;
@@ -55,13 +59,31 @@ body {
 }
 
 #panel-block {
-  width: 250px;
+  max-width: 350px;
   flex-shrink: 0;
   padding: 20px;
   box-sizing: border-box;
   background: #333333;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease; /* Use transform for sliding */
+}
+
+.panel-header {
+  display: none; /* This is no longer needed as logo is moved */
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #EDBE45;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.header-mobile {
+  display: none; /* Hidden by default on desktop */
 }
 
 #panel-block select,
@@ -94,13 +116,17 @@ body {
   background: #d4a73a;
 }
 
+.panel-expanded #text-logo {
+  display: none;
+}
+
 #text-logo {
   font-family: 'Kodchasan', sans-serif;
   font-weight: bold;
   font-size: 1.8em;
-  margin: 0 0 20px 0;
-  text-align: center;
   color: #EDBE45;
+  margin: 0 0 1em 0;
+  text-align: center;
 }
 
 #paste-editor {
@@ -218,16 +244,69 @@ body .cm-s-default .CodeMirror-gutters , body .cm-s-dracula .CodeMirror-gutters 
 }
 
 @media(max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333333;
+    padding: 10px;
+    z-index: 102;
+    box-sizing: border-box;
+  }
+
+  #text-logo {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
   #new-paste {
     flex-direction: column;
+    width: 100%;
   }
 
   #panel-block {
-    width: 100%;
-    order: -1; /* Move panel to the top on small screens */
+    width: 250px;
+    max-width: none;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding-top: 70px;
+  }
+
+  #panel-block.panel-expanded {
+    transform: translateX(0);
+  }
+
+  #action-menu-container {
+    display: block;
+  }
+
+  body.panel-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
   }
 
   #paste-block {
+    width: 100%;
     padding: 10px;
   }
 
@@ -239,7 +318,7 @@ body .cm-s-default .CodeMirror-gutters , body .cm-s-dracula .CodeMirror-gutters 
 
   #paste-editor {
     height: 100%;
-    min-height: 300px; /* Fixed height for editor on small screens */
+    min-height: 300px;
   }
 
   .CodeMirror {
@@ -264,4 +343,80 @@ body .cm-s-default .CodeMirror-gutters , body .cm-s-dracula .CodeMirror-gutters 
 
 ::-webkit-scrollbar-thumb:hover {
   background: #777777;
+}
+
+.sidebar-block {
+  color: #FAFAFA; /* Change text color for better contrast on darker background */
+  background: #444444; /* Darker background for the block */
+  border-radius: 3px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-block h4 {
+  margin-top: 0;
+  color: #EDBE45;
+  text-align: left;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #EDBE45;
+  padding-bottom: 5px;
+}
+
+.recent-pastes-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.recent-pastes-list li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #555555; /* Lighter border for darker background */
+  line-height: 1.4;
+  transition: background 0.3s ease; /* Smooth transition for hover */
+  padding-left: 5px; /* Add some padding for hover effect */
+}
+
+.recent-pastes-list li:hover {
+  background: #555555; /* Subtle hover background */
+  cursor: pointer;
+}
+
+.recent-pastes-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.recent-pastes-list li a {
+  color: #EDBE45; /* Use theme color for links */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.recent-pastes-list li a:hover {
+  color: #d4a73a; /* Darker theme color on hover */
+  text-decoration: underline;
+}
+
+.recent-pastes-list li small {
+  display: block;
+  color: #AAAAAA; /* Lighter grey for small text */
+  font-size: 0.8em;
+  margin-top: 3px;
+}
+
+.recent-pastes-list li i { /* Styling for potential icon */
+  margin-right: 8px;
+  color: #EDBE45;
+}
+
+.recent-pastes-list li small {
+  display: block;
+  color: #666666;
+  font-size: 0.8em;
 }

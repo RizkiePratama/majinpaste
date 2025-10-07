@@ -6,7 +6,7 @@ class PasteController < AppController
   get '/' do
     langArr = []
 
-    erb :index, :layout => :layout, :locals => {:lang => langArr}
+    erb :index, :layout => :layout, :locals => {:lang => langArr, :recent_pastes => recent_pastes}
   end
 
   get '/:slug' do
@@ -15,7 +15,7 @@ class PasteController < AppController
       cipher = Gibberish::AES.new('p4ssw0rd')
       paste.content = cipher.decrypt(paste.content)
       p paste.content
-      erb :paste, :layout => :layout, :locals => {:paste => paste}
+      erb :paste, :layout => :layout, :locals => {:paste => paste, :recent_pastes => recent_pastes}
     else
       redirect '/'
     end

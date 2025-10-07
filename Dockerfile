@@ -3,7 +3,7 @@ WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev default-libmysqlclient-dev libsqlite3-dev pkg-config nodejs ruby-dev
-COPY Gemfile ./
+COPY Gemfile Gemfile.lock ./
 
 # Install Ruby gems
 RUN bundle --full-index
