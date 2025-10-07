@@ -1,14 +1,25 @@
 default: &default
-  adapter: sqlite3
+  adapter: <%= ENV.fetch("DB_ADAPTER") { "sqlite3" } %>
+  encoding: unicode
+  pool: <%= ENV.fetch("DB_POOL") { 5 } %>
 
 development:
   <<: *default
-  database: 'majin_devel.sqlite3'
+  database: <%= ENV.fetch("DB_NAME") { "majin_devel.sqlite3" } %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
 
 test:
   <<: *default
-  database: 'majin_test.sqlite3'
+  database: <%= ENV.fetch("DB_TEST_NAME") { "majin_test.sqlite3" } %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
 
 production:
   <<: *default
-  database: 'majin.sqlite3'
+  database: <%= ENV.fetch("DB_NAME") { "majin.sqlite3" } %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
