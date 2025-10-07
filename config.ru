@@ -1,3 +1,5 @@
+require 'logger'
+
 # Require sinatra base
 require 'sinatra/base'
 require 'sinatra/activerecord'
