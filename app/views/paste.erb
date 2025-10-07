@@ -1,19 +1,19 @@
-<div id="indicator-block">
-  <h4>></h4>
-</div>
-
+<div id="new-paste">
 <div id="paste-block">
-  <pre><code><%= paste.content %></code></pre>
+  <div id="paste-display-editor"></div>
+  <textarea id="paste-content-hidden" style="display: none;"><%= paste.content %></textarea>
+  <input type="hidden" id="paste-lang-hidden" value="<%= paste.lang %>">
 </div>
 
-<div id="panel-block">
-  <%= erb :'/partial/menu' %>
+  <div id="panel-block">
+    <%= erb :'/partial/menu' %>
 
-  <div id="paste-info-container">
-    <ul id="paste-info">
-      <li><p><b>Language:</b><br/><%= paste.lang %></p></li>
-      <li><p><b>Created At:</b><br/><%= paste.created_at.strftime("%d %B %Y \n %H:%M:%S %Z") %></p></li>
-      <li><p><b>Paste Link:</b><br/><textarea readonly><%= request.base_url + '/' + paste.slug %></textarea></p></li>
-    </ul>
+    <div id="paste-info-container">
+      <ul id="paste-info">
+        <li><p><b>Language:</b><br/><%= paste.lang %></p></li>
+        <li><p><b>Created At:</b><br/><%= paste.created_at.strftime("%d %B %Y \n %H:%M:%S %Z") %></p></li>
+        <li><p><b>Paste Link:</b><br/><textarea readonly><%= request.base_url + '/' + paste.slug %></textarea></p></li>
+      </ul>
+    </div>
   </div>
 </div>

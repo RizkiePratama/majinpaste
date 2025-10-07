@@ -1,10 +1,7 @@
 <form id="new-paste" method="post" action="/create">
-  <div id="indicator-block">
-    <h4>></h4>
-  </div>
-
   <div id="paste-block">
-    <textarea name="paste[content]" id="paste-editor"></textarea>
+    <div id="paste-editor"></div>
+    <textarea name="paste[content]" id="paste-content-hidden" style="display: none;"></textarea>
   </div>
 
   <div id="panel-block">

@@ -4,9 +4,7 @@ require 'gibberish'
 class PasteController < AppController
 
   get '/' do
-    langArr = [
-      {:key => "text", :name => "Plain Text"},
-    ]
+    langArr = []
 
     erb :index, :layout => :layout, :locals => {:lang => langArr}
   end
