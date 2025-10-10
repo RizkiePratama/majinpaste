@@ -34,7 +34,7 @@ GEM
     logger (1.7.0)
     minitest (5.25.5)
     multi_json (1.17.0)
-    mustermann (2.0.2)
+    mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.7)
       bigdecimal
@@ -43,9 +43,14 @@ GEM
     pg (1.6.2-x86_64-linux)
     puma (5.6.9)
       nio4r (~> 2.0)
-    rack (2.2.19)
-    rack-protection (2.2.4)
-      rack
+    rack (3.2.3)
+    rack-protection (4.2.1)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.1.1)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (12.3.3)
@@ -65,19 +70,21 @@ GEM
     rspec-support (3.13.6)
     ruby2_keywords (0.0.5)
     securerandom (0.4.1)
-    sinatra (2.2.4)
-      mustermann (~> 2.0)
-      rack (~> 2.2)
-      rack-protection (= 2.2.4)
+    sinatra (4.2.1)
+      logger (>= 1.6.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.2.1)
+      rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
     sinatra-activerecord (2.0.28)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    sinatra-contrib (2.2.4)
-      multi_json
-      mustermann (~> 2.0)
-      rack-protection (= 2.2.4)
-      sinatra (= 2.2.4)
+    sinatra-contrib (4.2.1)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 4.2.1)
+      sinatra (= 4.2.1)
       tilt (~> 2.0)
     sqlite3 (2.7.4-x86_64-linux-gnu)
     tilt (2.6.1)
@@ -87,7 +94,6 @@ GEM
     uri (1.0.4)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -103,9 +109,9 @@ DEPENDENCIES
   rake (~> 12.3, >= 12.3.1)
   require_all (~> 3.0)
   rspec (~> 3.11)
-  sinatra (~> 2.0, >= 2.0.4)
+  sinatra (~> 4.2)
   sinatra-activerecord (~> 2.0, >= 2.0.23)
-  sinatra-contrib (~> 2.0, >= 2.0.4)
+  sinatra-contrib (~> 4.2)
   sqlite3 (~> 2.7.4)
 
 BUNDLED WITH
