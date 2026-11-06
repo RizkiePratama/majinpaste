@@ -19,26 +19,18 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|svg)$/,
-        use: [
-	  {
-	    loader: 'file-loader',
-	    options: {
-              name: 'fonts/[hash].[ext]',
-	    }
-	  }
-        ]
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext]'
+        }
       },
       {
         test: /\.ttf$/,
-        use: [
-	  {
-	    loader: 'ttf-loader',
-	    options: {
-              name: 'fonts/[hash].[ext]',
-	    }
-	  }
-        ]
-      },
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext]'
+        }
+      }
     ]
   }
 }
