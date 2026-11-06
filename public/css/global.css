@@ -8,6 +8,41 @@ body {
   flex-direction: column;
 }
 
+.not-found-page {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+}
+
+.not-found-code {
+  color: #EDBE45;
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.not-found-page h1 {
+  margin: 0 0 8px;
+}
+
+.not-found-page p:not(.not-found-code) {
+  color: #D7D7D7;
+  margin: 0 0 24px;
+}
+
+.not-found-action {
+  background: #EDBE45;
+  border-radius: 3px;
+  color: #252525;
+  font-weight: bold;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
 select, input {
   font-family: 'Kodchasan', sans-serif;
 }

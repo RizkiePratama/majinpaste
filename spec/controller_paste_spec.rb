@@ -13,6 +13,16 @@ describe PasteController do
         end
     end
 
+    context 'Missing Paste' do
+        it 'shows a not found page for an unknown paste' do
+            get '/does-not-exist'
+
+            expect(last_response.status).to eq 404
+            expect(last_response.body).to include('Paste not found')
+            expect(last_response.body).to include('Create new paste')
+        end
+    end
+
     context 'Create new Paste' do
         it 'POST to "/create"' do
             post '/create', :paste => {lang: "javascript",content: "This is some test content"}

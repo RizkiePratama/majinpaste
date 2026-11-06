@@ -17,7 +17,8 @@ class PasteController < AppController
       p paste.content
       erb :paste, :layout => :layout, :locals => {:paste => paste, :recent_pastes => recent_pastes}
     else
-      redirect '/'
+      status 404
+      erb :not_found, :layout => :layout
     end
   end
 
