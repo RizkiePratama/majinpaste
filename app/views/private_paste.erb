@@ -1,0 +1,15 @@
+<main class="private-paste-page">
+  <div class="private-paste-card">
+    <p class="private-paste-icon"><i class="fas fa-lock"></i></p>
+    <h1>Protected paste</h1>
+    <p>Enter password to view this paste</p>
+    <% if error_message %>
+      <p class="form-snackbar" role="alert"><%= error_message %></p>
+    <% end %>
+    <form method="post" action="/<%= paste.slug %>/unlock">
+      <label for="private-paste-password">Password</label>
+      <input id="private-paste-password" type="password" name="password" autofocus required>
+      <button type="submit">Unlock paste</button>
+    </form>
+  </div>
+</main>

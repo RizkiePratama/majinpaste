@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const pasteContentHidden = document.getElementById('paste-content-hidden');
   const newPasteForm = document.getElementById('new-paste');
   const langSelect = document.getElementById('lang');
+  const protectedCheckbox = document.getElementById('protected');
+  const passwordOption = document.getElementById('password-option');
+
+  if (protectedCheckbox && passwordOption) {
+    protectedCheckbox.addEventListener('change', () => {
+      passwordOption.classList.toggle('is-visible', protectedCheckbox.checked);
+    });
+  }
 
   const showSnackbar = (message) => {
     const container = document.getElementById('snackbar-container') || (() => {

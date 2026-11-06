@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 20181018) do
+ActiveRecord::Schema[8.0].define(version: 2026_11_06_000000) do
   create_table "pastes", force: :cascade do |t|
     t.text "content"
     t.string "slug"
     t.string "lang"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "visibility", default: "public", null: false
+    t.string "password_digest"
   end
 end

@@ -19,6 +19,16 @@
 	<option value="<%= item[:key] %>"><%= item[:name] %></option>
         <% end %>
       </select>
+
+      <label class="protected-option" for="protected">
+        <input id="protected" type="checkbox" name="paste[protected]" value="1">
+        Protected
+      </label>
+
+      <div id="password-option">
+        <label for="paste-password">Password</label>
+        <input id="paste-password" type="password" name="paste[password]" autocomplete="new-password">
+      </div>
     </div>
 
     <div id="form-action">
@@ -31,7 +41,7 @@
         <% if recent_pastes.any? %>
           <% recent_pastes.each do |paste| %>
             <li>
-              <a href="/<%= paste.slug %>"><i class="fas fa-file-alt"></i><%= paste.slug %></a><br>
+              <a href="/<%= paste.slug %>"><i class="fas fa-file-alt"></i><%= paste.slug %><% if paste.private? %> <i class="fas fa-lock" title="Protected paste" aria-label="Protected paste"></i><% end %></a><br>
               <small style="color: #D7D7D7"><%= format_time_ago(paste.created_at) %></small><br>
               <small style="color: #D7D7D7"><%= format_content_size(paste.content) %>, <%= paste.lang %></small>
             </li>

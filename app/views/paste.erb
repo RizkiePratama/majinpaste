@@ -33,7 +33,7 @@
         <% if recent_pastes.any? %>
           <% recent_pastes.each do |rp| %>
             <li>
-              <a href="/<%= rp.slug %>"><i class="fas fa-file-alt"></i><%= rp.slug %></a><br>
+              <a href="/<%= rp.slug %>"><i class="fas fa-file-alt"></i><%= rp.slug %><% if rp.private? %> <i class="fas fa-lock" title="Protected paste" aria-label="Protected paste"></i><% end %></a><br>
               <small style="color: #D7D7D7"><%= format_time_ago(rp.created_at) %></small><br>
               <small style="color: #D7D7D7"><%= format_content_size(rp.content) %>, <%= rp.lang %></small>
             </li>

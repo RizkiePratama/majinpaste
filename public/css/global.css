@@ -144,6 +144,7 @@ select, input {
 #panel-block {
   max-width: 350px;
   flex-shrink: 0;
+  width: 350px;
   padding: 20px;
   box-sizing: border-box;
   background: #333333;
@@ -170,7 +171,8 @@ select, input {
 }
 
 #panel-block select,
-#panel-block input[type=submit] {
+#panel-block input[type=submit],
+#panel-block input[type=password] {
   display: block;
   width: 100%;
   border-radius: 3px;
@@ -183,6 +185,94 @@ select, input {
   background: #FAFAFA;
   border: none;
   color: #252525;
+}
+
+#panel-block input[type=password] {
+  border: none;
+  box-sizing: border-box;
+}
+
+.protected-option {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+
+.protected-option input {
+  accent-color: #EDBE45;
+}
+
+#password-option[hidden] {
+  display: none;
+}
+
+#password-option {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 180ms ease, opacity 180ms ease;
+}
+
+#password-option.is-visible {
+  max-height: 90px;
+  opacity: 1;
+}
+
+.private-paste-page {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 24px;
+}
+
+.private-paste-card {
+  background: #333333;
+  border-radius: 6px;
+  max-width: 380px;
+  padding: 32px;
+  text-align: center;
+  width: 100%;
+}
+
+.private-paste-icon {
+  color: #EDBE45;
+  font-size: 2em;
+  margin: 0 0 12px;
+}
+
+.private-paste-card h1 {
+  margin: 0 0 8px;
+}
+
+.private-paste-card > p:not(.private-paste-icon):not(.form-snackbar) {
+  color: #D7D7D7;
+  margin: 0 0 20px;
+}
+
+.private-paste-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.private-paste-card input,
+.private-paste-card button {
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: 'Kodchasan', sans-serif;
+  padding: 10px;
+}
+
+.private-paste-card button {
+  background: #EDBE45;
+  color: #252525;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 #panel-block input[type=submit] {
