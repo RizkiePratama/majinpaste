@@ -275,6 +275,21 @@ body .cm-s-default .CodeMirror-gutters , body .cm-s-dracula .CodeMirror-gutters 
   background: #d4a73a;
 }
 
+#copy-content {
+  background: #EDBE45;
+  border: none;
+  border-radius: 3px;
+  color: #252525;
+  cursor: pointer;
+  font-family: 'Kodchasan', sans-serif;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+#copy-content:hover {
+  background: #d4a73a;
+}
+
 .copy-link-status {
   color: #477a35;
   font-size: 0.85em;

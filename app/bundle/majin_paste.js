@@ -144,18 +144,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyLinkButton = document.getElementById('copy-link');
   const pasteLink = document.getElementById('paste-link');
   const copyLinkStatus = document.getElementById('copy-link-status');
+  const copyContentButton = document.getElementById('copy-content');
+  const copyContentStatus = document.getElementById('copy-content-status');
+
+  const copyText = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (error) {
+      const fallback = document.createElement('textarea');
+      fallback.value = text;
+      fallback.style.position = 'fixed';
+      fallback.style.opacity = '0';
+      document.body.appendChild(fallback);
+      fallback.select();
+      document.execCommand('copy');
+      fallback.remove();
+    }
+  };
 
   if (copyLinkButton && pasteLink && copyLinkStatus) {
     copyLinkButton.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(pasteLink.value);
-      } catch (error) {
-        pasteLink.select();
-        document.execCommand('copy');
-        pasteLink.setSelectionRange(0, 0);
-      }
-
+      await copyText(pasteLink.value);
       copyLinkStatus.textContent = 'Link copied';
+    });
+  }
+
+  if (copyContentButton && pasteDisplayContentHidden && copyContentStatus) {
+    copyContentButton.addEventListener('click', async () => {
+      await copyText(pasteDisplayContentHidden.value);
+      copyContentStatus.textContent = 'Content copied';
     });
   }
 

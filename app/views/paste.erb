@@ -13,6 +13,10 @@
         <li><p><b>Language:</b><br/><%= paste.lang %></p></li>
         <li><p><b>Created At:</b><br/><%= paste.created_at.strftime("%d %B %Y \n %H:%M:%S %Z") %></p></li>
         <li>
+          <button id="copy-content" type="button">Copy content</button>
+          <p id="copy-content-status" class="copy-link-status" aria-live="polite"></p>
+        </li>
+        <li>
           <p><b>Paste Link:</b></p>
           <div class="paste-link-row">
             <input id="paste-link" type="text" readonly value="<%= request.base_url + '/' + paste.slug %>">
