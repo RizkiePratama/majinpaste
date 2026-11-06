@@ -24,5 +24,13 @@ describe PasteController do
             get @paste_path
             expect(last_response.status).to eq 200
         end
+
+        it 'shows a copy link action on the created paste page' do
+            post '/create', :paste => {lang: "javascript", content: "Copy this link"}
+            get last_response.headers["Location"]
+
+            expect(last_response.body).to include('id="copy-link"')
+            expect(last_response.body).to include('Copy link')
+        end
     end 
 end

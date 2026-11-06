@@ -141,6 +141,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const panelBlock = document.getElementById('panel-block');
 
+  const copyLinkButton = document.getElementById('copy-link');
+  const pasteLink = document.getElementById('paste-link');
+  const copyLinkStatus = document.getElementById('copy-link-status');
+
+  if (copyLinkButton && pasteLink && copyLinkStatus) {
+    copyLinkButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(pasteLink.value);
+      } catch (error) {
+        pasteLink.select();
+        document.execCommand('copy');
+        pasteLink.setSelectionRange(0, 0);
+      }
+
+      copyLinkStatus.textContent = 'Link copied';
+    });
+  }
+
   if (menuToggle && panelBlock) {
     menuToggle.addEventListener('click', () => {
       panelBlock.classList.toggle('panel-expanded');

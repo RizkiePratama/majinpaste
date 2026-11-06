@@ -243,6 +243,44 @@ body .cm-s-default .CodeMirror-gutters , body .cm-s-dracula .CodeMirror-gutters 
   min-height: 60px;
 }
 
+.paste-link-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+#paste-link {
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  flex: 1;
+  font-family: 'Source Code Pro', monospace;
+  min-width: 0;
+  padding: 8px;
+}
+
+#copy-link {
+  background: #EDBE45;
+  border: none;
+  border-radius: 3px;
+  color: #252525;
+  cursor: pointer;
+  font-family: 'Kodchasan', sans-serif;
+  font-weight: bold;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+#copy-link:hover {
+  background: #d4a73a;
+}
+
+.copy-link-status {
+  color: #477a35;
+  font-size: 0.85em;
+  min-height: 1.2em;
+}
+
 @media(max-width: 768px) {
   body {
     padding-top: 60px;
