@@ -33,6 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const newPasteForm = document.getElementById('new-paste');
   const langSelect = document.getElementById('lang');
 
+  const showSnackbar = (message) => {
+    const container = document.getElementById('snackbar-container') || (() => {
+      const newContainer = document.createElement('div');
+      newContainer.id = 'snackbar-container';
+      document.body.appendChild(newContainer);
+      return newContainer;
+    })();
+    const snackbar = document.createElement('p');
+    snackbar.className = 'form-snackbar';
+    snackbar.setAttribute('role', 'alert');
+    snackbar.textContent = message;
+    container.appendChild(snackbar);
+    window.setTimeout(() => {
+      snackbar.classList.add('is-leaving');
+      window.setTimeout(() => snackbar.remove(), 220);
+    }, 5000);
+  };
+
   const codeMirrorModes = [
     { label: 'Plain Text', value: 'text/plain' },
     { label: 'C/C++/C#', value: 'text/x-csharp' },
@@ -93,10 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (newPasteForm) {
-      newPasteForm.addEventListener('submit', () => {
+      newPasteForm.addEventListener('submit', (event) => {
         if (pasteContentHidden) {
           pasteContentHidden.value = editor.getValue();
           console.log('Updated hidden textarea with CodeMirror content before submission.');
+        }
+        if (editor.getValue().trim() === '') {
+          event.preventDefault();
+          showSnackbar('Paste content cannot be empty');
         }
       });
     }

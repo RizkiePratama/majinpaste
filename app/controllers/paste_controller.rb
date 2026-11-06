@@ -23,11 +23,21 @@ class PasteController < AppController
   end
 
   post '/create' do
+    content = params['paste']['content'].to_s
+    if content.strip.empty?
+      status 422
+      return erb :index, :layout => :layout, :locals => {
+        :lang => [],
+        :recent_pastes => recent_pastes,
+        :error_message => 'Paste content cannot be empty'
+      }
+    end
+
     paste = Paste.new
     paste.lang = params['paste']['lang']
 
     cipher = Gibberish::AES.new('p4ssw0rd')
-    paste.content = cipher.encrypt(params['paste']['content'])
+    paste.content = cipher.encrypt(content)
     isNotUnique = true
     while(isNotUnique)
       slug = SecureRandom.hex(5)

@@ -24,6 +24,15 @@ describe PasteController do
     end
 
     context 'Create new Paste' do
+        it 'rejects an empty paste with an inline message' do
+            post '/create', :paste => {lang: "javascript", content: "  "}
+
+            expect(last_response.status).to eq 422
+            expect(last_response.body).to include('Paste content cannot be empty')
+            expect(last_response.body).to include('class="form-snackbar"')
+            expect(last_response.body).to include('id="snackbar-container"')
+        end
+
         it 'POST to "/create"' do
             post '/create', :paste => {lang: "javascript",content: "This is some test content"}
             expect(last_response.status).to eq 302

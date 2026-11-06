@@ -1,4 +1,9 @@
 <form id="new-paste" method="post" action="/create">
+  <% if defined?(error_message) && error_message %>
+    <div id="snackbar-container">
+      <p class="form-snackbar" role="alert"><%= error_message %></p>
+    </div>
+  <% end %>
   <div id="paste-block">
     <div id="paste-editor"></div>
     <textarea name="paste[content]" id="paste-content-hidden" style="display: none;"></textarea>
